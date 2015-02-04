@@ -1,20 +1,29 @@
 <head>
-  <title>todos</title>
+  <title>Todos</title>
 </head>
 
 <body>
-  <h1>My todo list</h1>
-  <form class="new-task" name="new-task">
-    <input type="text" name="text" placeholder="Enter new task" />
-  </form>
-  <ul class="todos-list">
-    {{#each tasks}} {{> task}} {{/each}}
-  </ul>
+  <div class="container">
+    <header>
+    <h1>My todo list ({{incompleteCount}})</h1>
+    <label class="hide-completed">
+      <input type="checkbox" />
+      Hide Completed Tasks
+    </label>
+    <form class="new-task">
+      <input type="text" name="text" placeholder="Enter to add new task" />
+    </form>
+  </header>
+    <ul class="todos-list">
+      {{#each tasks}} {{> task}} {{/each}}
+    </ul>
+  </div>
 </body>
 
 <template name="task">
-  <li>
+  <li class="{{#if checked}} checked {{/if}}">
+    <input type="checkbox" class="toggle-checked" checked="{{checked}}">
     <span class="text">{{text}}</span>
-    <button class="delete" name="delete">&times;</button>
+    <button class="delete">&times;</button>
   </li>
 </template>
