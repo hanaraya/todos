@@ -1,5 +1,2 @@
 # todos
-Meteor Todos
-
-Learnign meteor
-Meteor tutorial
+Task Todos using Meteor JS framework
